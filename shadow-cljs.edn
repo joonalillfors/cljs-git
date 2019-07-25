@@ -1,0 +1,13 @@
+{:source-paths ["src"]
+ :dependencies [[binaryage/devtools "0.9.10"]
+                [nrepl "0.6.0"]
+                [reagent "0.8.1"]
+                [cljs-http "0.1.46"]]
+ :builds       {:app {:target     :browser
+                      :output-dir "public/js"
+                      :asset-path "/js"
+                      :modules    {:app {:entries [cljs-test.core]}}
+                      :devtools   {:after-load cljs-test.core/mount-root}}}
+
+ :dev-http     {3000 {:root    "public"
+                      :handler user/app}}}
